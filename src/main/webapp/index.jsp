@@ -114,7 +114,7 @@
 			var layer = layui.layer, vipNav = layui.vip_nav, $ = layui.jquery;
 
 			// 主体菜单生成 [请求地址,过滤ID,是否展开,携带参数]
-			vipNav.main('/json/nav_main.json', 'side-main', true);
+			vipNav.main('./json/tab/tab.json', 'side-main', true);
 
 			// you code ...
 		});
