@@ -15,7 +15,7 @@
     <context:component-scan base-package="com.lanou.upms.web" />
 
     <!-- 配置试图控制器 -->
-<!--    <mvc:view-controller path="/" view-name="login" />-->
+    <mvc:view-controller path="/" view-name="login" />
 
     <!-- 开启SpringMVC注解支持 -->
     <mvc:annotation-driven>

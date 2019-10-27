@@ -31,8 +31,8 @@
         body {
             padding-top: 200px;
             padding-bottom: 40px;
-            background-image: url('/static/img/bg2.png');
-            /*background:url('/static/img/bg2.png');*/
+            background-image: url('/static/img/bg3.png');
+            /*background:url('/static/img/bg3.png');*/
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;

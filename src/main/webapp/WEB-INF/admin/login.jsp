@@ -33,7 +33,7 @@
             padding-top: 200px;
             padding-bottom: 40px;
             background-image: url('/static/img/bg2.png');
-            /*background:url('/static/img/bg2.png');*/
+            /*background:url('/static/image/bg3.png');*/
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -78,7 +78,7 @@
 <body>
 <div class="container">
     <form name="myForm" class="form-signin" action="LoginServlet" method="post" onsubmit="return checkForm()">
-        <h2 class="form-signin-heading"><font color="gray">UPMS用户权限管理系统</font></h2>
+        <h2 class="form-signin-heading"><font color="gray">用户权限管理系统</font></h2>
         <input id="account" name="account" value="${cookie.account.value }" type="text" class="input-block-level" placeholder="用户名..." >
         <input id="password" name="password" value="${cookie.password.value }" type="password" class="input-block-level" placeholder="密码..." >
 
