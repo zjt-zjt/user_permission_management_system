@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "text": "角色管理",
+      "icon": "&#xe638;",
+      "href": "jsp/admin-role.html"
+    },{
+      "text": "权限管理",
+      "icon": "&#xe638;",
+      "href": "jsp/admin-rule.html"
+    },{
+      "text": "管理员列表",
+      "icon": "&#xe638;",
+      "href": "jsp/admin-list.html"
+    }
+  ]
+}

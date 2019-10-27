@@ -8,9 +8,12 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>首页</title>
-<link rel="stylesheet" href="frame/layui/css/layui.css">
+<%--<link rel="stylesheet" href="frame/layui/css/layui.css">
 <link rel="stylesheet" href="./frame/static/css/style.css">
-<link rel="icon" href="./frame/static/image/code.png">
+<link rel="icon" href="./frame/static/image/code.png">--%>
+	<link rel="stylesheet" href="/static/layui/css/layui.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="icon" href="/static/image/code.png">
 </head>
 <body>
 
@@ -59,7 +62,8 @@
 		</div>
 
 
-		<!-- side -->
+		<!-- 中部开始 -->
+		<!-- 左侧菜单开始 -->
 		<div class="layui-side my-side">
 			<div class="layui-side-scroll">
 				<!-- 左侧主菜单添加选项卡监听 -->
@@ -68,9 +72,9 @@
 
 			</div>
 		</div>
+		<!-- 左侧菜单结束 -->
 
-
-		<!-- body -->
+		<!-- 右侧主体开始 -->
 		<div class="layui-body my-body" style="bottom: 0">
 			<div class="layui-tab layui-tab-card my-tab" lay-filter="card"
 				lay-allowClose="true">
@@ -80,14 +84,15 @@
 				</ul>
 				<div class="layui-tab-content">
 					<div class="layui-tab-item layui-show">
-						<iframe id="iframe" src="jsp/welcome.html" frameborder="0"></iframe>
+						<iframe id="iframe" src="jsp/welcome2.html" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- 右侧主体结束 -->
+		<!-- 中部结束 -->
 
 	</div>
-
 
 
 	<!-- 右键菜单 -->
@@ -105,8 +110,10 @@
 		</table>
 	</div>
 
-	<script type="text/javascript" src="frame/layui/layui.js"></script>
-	<script type="text/javascript" src="./frame/static/js/vip_comm.js"></script>
+	<%--<script type="text/javascript" src="frame/layui/layui.js"></script>
+	<script type="text/javascript" src="./frame/static/js/vip_comm.js"></script>--%>
+	<script type="text/javascript" src="/static/layui/layui.js"></script>
+	<script type="text/javascript" src="/static/js/vip_comm.js"></script>
 	<script type="text/javascript">
 		layui.use([ 'layer', 'vip_nav' ], function() {
 
@@ -114,7 +121,8 @@
 			var layer = layui.layer, vipNav = layui.vip_nav, $ = layui.jquery;
 
 			// 主体菜单生成 [请求地址,过滤ID,是否展开,携带参数]
-			vipNav.main('./json/tab/tab.json', 'side-main', true);
+			/*vipNav.main('./json/tab/tab2.json', 'side-main', true);*/
+			vipNav.main('/static/json/tab/tab2.json', 'side-main', true);
 
 			// you code ...
 		});

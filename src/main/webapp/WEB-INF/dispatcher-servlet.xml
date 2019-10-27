@@ -44,10 +44,6 @@
 
     <!-- 静态资源放行 -->
     <mvc:resources mapping="/static/**" location="/static/" />
-    <mvc:resources mapping="/error/**" location="/error/" />
-    <mvc:resources mapping="/frame/**" location="/frame/" />
-    <mvc:resources mapping="/js/**" location="/js/" />
-    <mvc:resources mapping="/json/**" location="/json/" />
     <mvc:resources mapping="/jsp/**" location="/jsp/" />
 
 </beans>
