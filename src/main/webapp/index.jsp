@@ -22,7 +22,7 @@
 		<!-- 添加skin-1类可手动修改主题为纯白，添加skin-2类可手动修改主题为蓝白 -->
 		<!-- header -->
 		<div class="layui-header my-header">
-			<a href="home.jsp"> <!--<img class="my-header-logo" src="" alt="logo">-->
+			<a href="index.jsp"> <!--<img class="my-header-logo" src="" alt="logo">-->
 				<div class="my-header-logo">UPMS用户权限管理系统</div>
 			</a>
 			<div class="my-header-btn">
@@ -110,9 +110,10 @@
 		</table>
 	</div>
 
-	<%--<script type="text/javascript" src="frame/layui/layui.js"></script>
-	<script type="text/javascript" src="./frame/static/js/vip_comm.js"></script>--%>
-	<script type="text/javascript" src="/static/layui/layui.js"></script>
+<%--	<script type="text/javascript" src="frame/layui/layui.js"></script>--%>
+<%--	<script type="text/javascript" src="./frame/static/js/vip_comm.js"></script>--%>
+
+	<script type="text/javascript" src="/static/frame/layui/layui.js"></script>
 	<script type="text/javascript" src="/static/js/vip_comm.js"></script>
 	<script type="text/javascript">
 		layui.use([ 'layer', 'vip_nav' ], function() {
@@ -122,7 +123,7 @@
 
 			// 主体菜单生成 [请求地址,过滤ID,是否展开,携带参数]
 			/*vipNav.main('./json/tab/tab2.json', 'side-main', true);*/
-			vipNav.main('/static/json/tab/tab2.json', 'side-main', true);
+			vipNav.main('/static/json/tab/tab3.json', 'side-main', true);
 
 			// you code ...
 		});
