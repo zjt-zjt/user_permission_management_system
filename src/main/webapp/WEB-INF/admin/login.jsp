@@ -77,9 +77,9 @@
 </head>
 <body>
 <div class="container">
-    <form name="myForm" class="form-signin" action="LoginServlet" method="post" onsubmit="return checkForm()">
+    <form name="myForm" class="form-signin" action="rest/login" method="post" onsubmit="return checkForm()">
         <h2 class="form-signin-heading"><font color="gray">用户权限管理系统</font></h2>
-        <input id="account" name="account" value="${cookie.account.value }" type="text" class="input-block-level" placeholder="用户名..." >
+        <input id="username" name="username" value="${cookie.username.value }" type="text" class="input-block-level" placeholder="用户名..." >
         <input id="password" name="password" value="${cookie.password.value }" type="password" class="input-block-level" placeholder="密码..." >
 
         <label class="checkbox">
@@ -103,22 +103,22 @@
 
     // 重写表单提交事件，让方法返回值为false，禁止表单提交
     form.onsubmit = function () {
-        var account = $("#account").val();
+        var username = $("#username").val();
         var password = $("#password").val();
         var rememberMe = $("input[type='checkbox']").is(':checked'); //jQuery获取复选框的值，选中为true，不选为false
         console.log(rememberMe);
 
-        loginByPOST(account, password, rememberMe);
+        loginByPOST(username, password, rememberMe);
         return false;
     };
 
-    function loginByPOST(account, password, rememberMe) {
-        console.log("rememberMe：" + rememberMe + ", account：" + account + ", password：" + password);
-        var url = "LoginServlet";
+    function loginByPOST(username, password, rememberMe) {
+        console.log("rememberMe：" + rememberMe + ", username：" + username + ", password：" + password);
+        var url = "login";
         $.ajax(url, {
            type:"GET",
            data:{
-               account:account,
+               username:username,
                password:password,
                rememberMe:rememberMe
            },
@@ -129,8 +129,8 @@
                 console.log(textStatus);
                 $("#error").text(data.message);
 
-                var location = data.data; // 跳转的地址
-                // var location = "http://localhost:8082" + data.data;
+                // var location = data.data; // 跳转的地址
+                var location = "http://localhost:8080" + data.data;
                 console.log(location);
                 // alert(location);
 

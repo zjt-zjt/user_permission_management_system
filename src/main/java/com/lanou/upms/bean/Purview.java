@@ -1,11 +1,11 @@
 package com.lanou.upms.bean;
 
-public class Right {
-    private Integer rightId;
+public class Purview {
+    private Integer purviewId;
 
     private Integer parentId;
 
-    private String rightName;
+    private String purviewName;
 
     private String url;
 
@@ -13,12 +13,12 @@ public class Right {
 
     private Integer orderNum;
 
-    public Integer getRightId() {
-        return rightId;
+    public Integer getPurviewId() {
+        return purviewId;
     }
 
-    public void setRightId(Integer rightId) {
-        this.rightId = rightId;
+    public void setPurviewId(Integer purviewId) {
+        this.purviewId = purviewId;
     }
 
     public Integer getParentId() {
@@ -29,12 +29,12 @@ public class Right {
         this.parentId = parentId;
     }
 
-    public String getRightName() {
-        return rightName;
+    public String getPurviewName() {
+        return purviewName;
     }
 
-    public void setRightName(String rightName) {
-        this.rightName = rightName == null ? null : rightName.trim();
+    public void setPurviewName(String purviewName) {
+        this.purviewName = purviewName == null ? null : purviewName.trim();
     }
 
     public String getUrl() {

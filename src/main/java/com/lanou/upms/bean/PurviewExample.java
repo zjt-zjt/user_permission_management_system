@@ -3,14 +3,14 @@ package com.lanou.upms.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RightExample {
+public class PurviewExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public RightExample() {
+    public PurviewExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,63 +104,63 @@ public class RightExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRightIdIsNull() {
-            addCriterion("right_id is null");
+        public Criteria andPurviewIdIsNull() {
+            addCriterion("purview_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdIsNotNull() {
-            addCriterion("right_id is not null");
+        public Criteria andPurviewIdIsNotNull() {
+            addCriterion("purview_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdEqualTo(Integer value) {
-            addCriterion("right_id =", value, "rightId");
+        public Criteria andPurviewIdEqualTo(Integer value) {
+            addCriterion("purview_id =", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotEqualTo(Integer value) {
-            addCriterion("right_id <>", value, "rightId");
+        public Criteria andPurviewIdNotEqualTo(Integer value) {
+            addCriterion("purview_id <>", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdGreaterThan(Integer value) {
-            addCriterion("right_id >", value, "rightId");
+        public Criteria andPurviewIdGreaterThan(Integer value) {
+            addCriterion("purview_id >", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("right_id >=", value, "rightId");
+        public Criteria andPurviewIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("purview_id >=", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdLessThan(Integer value) {
-            addCriterion("right_id <", value, "rightId");
+        public Criteria andPurviewIdLessThan(Integer value) {
+            addCriterion("purview_id <", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdLessThanOrEqualTo(Integer value) {
-            addCriterion("right_id <=", value, "rightId");
+        public Criteria andPurviewIdLessThanOrEqualTo(Integer value) {
+            addCriterion("purview_id <=", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdIn(List<Integer> values) {
-            addCriterion("right_id in", values, "rightId");
+        public Criteria andPurviewIdIn(List<Integer> values) {
+            addCriterion("purview_id in", values, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotIn(List<Integer> values) {
-            addCriterion("right_id not in", values, "rightId");
+        public Criteria andPurviewIdNotIn(List<Integer> values) {
+            addCriterion("purview_id not in", values, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdBetween(Integer value1, Integer value2) {
-            addCriterion("right_id between", value1, value2, "rightId");
+        public Criteria andPurviewIdBetween(Integer value1, Integer value2) {
+            addCriterion("purview_id between", value1, value2, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("right_id not between", value1, value2, "rightId");
+        public Criteria andPurviewIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("purview_id not between", value1, value2, "purviewId");
             return (Criteria) this;
         }
 
@@ -224,73 +224,73 @@ public class RightExample {
             return (Criteria) this;
         }
 
-        public Criteria andRightNameIsNull() {
-            addCriterion("right_name is null");
+        public Criteria andPurviewNameIsNull() {
+            addCriterion("purview_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameIsNotNull() {
-            addCriterion("right_name is not null");
+        public Criteria andPurviewNameIsNotNull() {
+            addCriterion("purview_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameEqualTo(String value) {
-            addCriterion("right_name =", value, "rightName");
+        public Criteria andPurviewNameEqualTo(String value) {
+            addCriterion("purview_name =", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameNotEqualTo(String value) {
-            addCriterion("right_name <>", value, "rightName");
+        public Criteria andPurviewNameNotEqualTo(String value) {
+            addCriterion("purview_name <>", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameGreaterThan(String value) {
-            addCriterion("right_name >", value, "rightName");
+        public Criteria andPurviewNameGreaterThan(String value) {
+            addCriterion("purview_name >", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameGreaterThanOrEqualTo(String value) {
-            addCriterion("right_name >=", value, "rightName");
+        public Criteria andPurviewNameGreaterThanOrEqualTo(String value) {
+            addCriterion("purview_name >=", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameLessThan(String value) {
-            addCriterion("right_name <", value, "rightName");
+        public Criteria andPurviewNameLessThan(String value) {
+            addCriterion("purview_name <", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameLessThanOrEqualTo(String value) {
-            addCriterion("right_name <=", value, "rightName");
+        public Criteria andPurviewNameLessThanOrEqualTo(String value) {
+            addCriterion("purview_name <=", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameLike(String value) {
-            addCriterion("right_name like", value, "rightName");
+        public Criteria andPurviewNameLike(String value) {
+            addCriterion("purview_name like", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameNotLike(String value) {
-            addCriterion("right_name not like", value, "rightName");
+        public Criteria andPurviewNameNotLike(String value) {
+            addCriterion("purview_name not like", value, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameIn(List<String> values) {
-            addCriterion("right_name in", values, "rightName");
+        public Criteria andPurviewNameIn(List<String> values) {
+            addCriterion("purview_name in", values, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameNotIn(List<String> values) {
-            addCriterion("right_name not in", values, "rightName");
+        public Criteria andPurviewNameNotIn(List<String> values) {
+            addCriterion("purview_name not in", values, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameBetween(String value1, String value2) {
-            addCriterion("right_name between", value1, value2, "rightName");
+        public Criteria andPurviewNameBetween(String value1, String value2) {
+            addCriterion("purview_name between", value1, value2, "purviewName");
             return (Criteria) this;
         }
 
-        public Criteria andRightNameNotBetween(String value1, String value2) {
-            addCriterion("right_name not between", value1, value2, "rightName");
+        public Criteria andPurviewNameNotBetween(String value1, String value2) {
+            addCriterion("purview_name not between", value1, value2, "purviewName");
             return (Criteria) this;
         }
 

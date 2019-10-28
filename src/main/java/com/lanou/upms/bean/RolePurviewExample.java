@@ -3,14 +3,14 @@ package com.lanou.upms.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleRightExample {
+public class RolePurviewExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public RoleRightExample() {
+    public RolePurviewExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -224,63 +224,63 @@ public class RoleRightExample {
             return (Criteria) this;
         }
 
-        public Criteria andRightIdIsNull() {
-            addCriterion("right_id is null");
+        public Criteria andPurviewIdIsNull() {
+            addCriterion("purview_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdIsNotNull() {
-            addCriterion("right_id is not null");
+        public Criteria andPurviewIdIsNotNull() {
+            addCriterion("purview_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdEqualTo(Integer value) {
-            addCriterion("right_id =", value, "rightId");
+        public Criteria andPurviewIdEqualTo(Integer value) {
+            addCriterion("purview_id =", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotEqualTo(Integer value) {
-            addCriterion("right_id <>", value, "rightId");
+        public Criteria andPurviewIdNotEqualTo(Integer value) {
+            addCriterion("purview_id <>", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdGreaterThan(Integer value) {
-            addCriterion("right_id >", value, "rightId");
+        public Criteria andPurviewIdGreaterThan(Integer value) {
+            addCriterion("purview_id >", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("right_id >=", value, "rightId");
+        public Criteria andPurviewIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("purview_id >=", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdLessThan(Integer value) {
-            addCriterion("right_id <", value, "rightId");
+        public Criteria andPurviewIdLessThan(Integer value) {
+            addCriterion("purview_id <", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdLessThanOrEqualTo(Integer value) {
-            addCriterion("right_id <=", value, "rightId");
+        public Criteria andPurviewIdLessThanOrEqualTo(Integer value) {
+            addCriterion("purview_id <=", value, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdIn(List<Integer> values) {
-            addCriterion("right_id in", values, "rightId");
+        public Criteria andPurviewIdIn(List<Integer> values) {
+            addCriterion("purview_id in", values, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotIn(List<Integer> values) {
-            addCriterion("right_id not in", values, "rightId");
+        public Criteria andPurviewIdNotIn(List<Integer> values) {
+            addCriterion("purview_id not in", values, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdBetween(Integer value1, Integer value2) {
-            addCriterion("right_id between", value1, value2, "rightId");
+        public Criteria andPurviewIdBetween(Integer value1, Integer value2) {
+            addCriterion("purview_id between", value1, value2, "purviewId");
             return (Criteria) this;
         }
 
-        public Criteria andRightIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("right_id not between", value1, value2, "rightId");
+        public Criteria andPurviewIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("purview_id not between", value1, value2, "purviewId");
             return (Criteria) this;
         }
     }

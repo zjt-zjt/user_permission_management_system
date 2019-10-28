@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.upms.mapper.RightMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.upms.bean.Right">
-    <id column="right_id" jdbcType="INTEGER" property="rightId" />
+<mapper namespace="com.lanou.upms.mapper.PurviewMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.upms.bean.Purview">
+    <id column="purview_id" jdbcType="INTEGER" property="purviewId" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
-    <result column="right_name" jdbcType="VARCHAR" property="rightName" />
+    <result column="purview_name" jdbcType="VARCHAR" property="purviewName" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="order_num" jdbcType="INTEGER" property="orderNum" />
@@ -68,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    right_id, parent_id, right_name, url, type, order_num
+    purview_id, parent_id, purview_name, url, type, order_num
   </sql>
-  <select id="selectByExample" parameterType="com.lanou.upms.bean.RightExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lanou.upms.bean.PurviewExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from right
+    from purview
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,39 +87,39 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from right
-    where right_id = #{rightId,jdbcType=INTEGER}
+    from purview
+    where purview_id = #{purviewId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from right
-    where right_id = #{rightId,jdbcType=INTEGER}
+    delete from purview
+    where purview_id = #{purviewId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lanou.upms.bean.RightExample">
-    delete from right
+  <delete id="deleteByExample" parameterType="com.lanou.upms.bean.PurviewExample">
+    delete from purview
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lanou.upms.bean.Right">
-    <selectKey keyProperty="rightId" order="AFTER" resultType="java.lang.Integer">
+  <insert id="insert" parameterType="com.lanou.upms.bean.Purview">
+    <selectKey keyProperty="purviewId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into right (parent_id, right_name, url, 
+    insert into purview (parent_id, purview_name, url, 
       type, order_num)
-    values (#{parentId,jdbcType=INTEGER}, #{rightName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+    values (#{parentId,jdbcType=INTEGER}, #{purviewName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR}, #{orderNum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.upms.bean.Right">
-    <selectKey keyProperty="rightId" order="AFTER" resultType="java.lang.Integer">
+  <insert id="insertSelective" parameterType="com.lanou.upms.bean.Purview">
+    <selectKey keyProperty="purviewId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into right
+    insert into purview
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="parentId != null">
         parent_id,
       </if>
-      <if test="rightName != null">
-        right_name,
+      <if test="purviewName != null">
+        purview_name,
       </if>
       <if test="url != null">
         url,
@@ -135,8 +135,8 @@
       <if test="parentId != null">
         #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="rightName != null">
-        #{rightName,jdbcType=VARCHAR},
+      <if test="purviewName != null">
+        #{purviewName,jdbcType=VARCHAR},
       </if>
       <if test="url != null">
         #{url,jdbcType=VARCHAR},
@@ -149,23 +149,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lanou.upms.bean.RightExample" resultType="java.lang.Long">
-    select count(*) from right
+  <select id="countByExample" parameterType="com.lanou.upms.bean.PurviewExample" resultType="java.lang.Long">
+    select count(*) from purview
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update right
+    update purview
     <set>
-      <if test="record.rightId != null">
-        right_id = #{record.rightId,jdbcType=INTEGER},
+      <if test="record.purviewId != null">
+        purview_id = #{record.purviewId,jdbcType=INTEGER},
       </if>
       <if test="record.parentId != null">
         parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
-      <if test="record.rightName != null">
-        right_name = #{record.rightName,jdbcType=VARCHAR},
+      <if test="record.purviewName != null">
+        purview_name = #{record.purviewName,jdbcType=VARCHAR},
       </if>
       <if test="record.url != null">
         url = #{record.url,jdbcType=VARCHAR},
@@ -182,10 +182,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update right
-    set right_id = #{record.rightId,jdbcType=INTEGER},
+    update purview
+    set purview_id = #{record.purviewId,jdbcType=INTEGER},
       parent_id = #{record.parentId,jdbcType=INTEGER},
-      right_name = #{record.rightName,jdbcType=VARCHAR},
+      purview_name = #{record.purviewName,jdbcType=VARCHAR},
       url = #{record.url,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
       order_num = #{record.orderNum,jdbcType=INTEGER}
@@ -193,14 +193,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.upms.bean.Right">
-    update right
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.upms.bean.Purview">
+    update purview
     <set>
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="rightName != null">
-        right_name = #{rightName,jdbcType=VARCHAR},
+      <if test="purviewName != null">
+        purview_name = #{purviewName,jdbcType=VARCHAR},
       </if>
       <if test="url != null">
         url = #{url,jdbcType=VARCHAR},
@@ -212,15 +212,15 @@
         order_num = #{orderNum,jdbcType=INTEGER},
       </if>
     </set>
-    where right_id = #{rightId,jdbcType=INTEGER}
+    where purview_id = #{purviewId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.upms.bean.Right">
-    update right
+  <update id="updateByPrimaryKey" parameterType="com.lanou.upms.bean.Purview">
+    update purview
     set parent_id = #{parentId,jdbcType=INTEGER},
-      right_name = #{rightName,jdbcType=VARCHAR},
+      purview_name = #{purviewName,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       order_num = #{orderNum,jdbcType=INTEGER}
-    where right_id = #{rightId,jdbcType=INTEGER}
+    where purview_id = #{purviewId,jdbcType=INTEGER}
   </update>
 </mapper>

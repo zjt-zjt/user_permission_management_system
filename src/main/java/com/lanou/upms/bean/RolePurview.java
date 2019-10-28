@@ -1,11 +1,11 @@
 package com.lanou.upms.bean;
 
-public class RoleRight {
+public class RolePurview {
     private Integer id;
 
     private Integer roleId;
 
-    private Integer rightId;
+    private Integer purviewId;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class RoleRight {
         this.roleId = roleId;
     }
 
-    public Integer getRightId() {
-        return rightId;
+    public Integer getPurviewId() {
+        return purviewId;
     }
 
-    public void setRightId(Integer rightId) {
-        this.rightId = rightId;
+    public void setPurviewId(Integer purviewId) {
+        this.purviewId = purviewId;
     }
 }

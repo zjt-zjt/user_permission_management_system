@@ -12,6 +12,7 @@
 
     <context:property-placeholder location="classpath*:/jdbc.properties" />
 
+    <context:component-scan base-package="com.lanou.upms.bean"  />
     <context:component-scan base-package="com.lanou.upms.service"  />
     <context:component-scan base-package="com.lanou.upms.mapper" />
     <mybatis:scan base-package="com.lanou.upms.mapper" />

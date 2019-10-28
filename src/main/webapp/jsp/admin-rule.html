@@ -65,58 +65,66 @@
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
                         </div>
+
+
                         <div class="layui-card-body ">
-                            <table class="layui-table layui-form">
-                              <thead>
-                                <tr>
-                                  <th>
-                                    <input type="checkbox" name=""  lay-skin="primary">
-                                  </th>
-                                  <th>ID</th>
-                                  <th>权限规则</th>
-                                  <th>权限名称</th>
-                                  <th>所属分类</th>
-                                  <th>操作</th>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>
-                                   <input type="checkbox" name=""  lay-skin="primary">
-                                  </td>
-                                  <td>1</td>
-                                  <td>admin/user/userlist</td>
-                                  <td>会员列表</td>
-                                  <td>会员相关</td>
-                                  <td class="td-manage">
-                                    <a title="编辑"  onclick="xadmin.open('编辑','xxx.html')" href="javascript:;">
-                                      <i class="layui-icon">&#xe642;</i>
-                                    </a>
-                                    <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                      <i class="layui-icon">&#xe640;</i>
-                                    </a>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+
+                            <table id="rightList"></table>
+                            <script>
+                                console.log("111111111");
+                                layui.use('table', function() {
+                                    var table = layui.table;
+
+                                    table.render({
+                                        elem: '#rightList',
+                                        height: 480,
+                                        url: '/right/list',
+                                        // data: msg,
+                                        page: true, //开启分页
+                                        // limit:10,
+                                        // limits:[10,20,30],
+                                        // uid:2,
+                                        // request: {
+                                        //     pageName: 'page' //页码的参数名称，默认：page
+                                        //     ,limitName: 'limit' //每页数据量的参数名，默认：limit
+                                        // },
+                                        cols: [[ //表头
+                                            {field: 'purviewId', title: 'ID', sort: true, fixed: 'left', width: 80},
+                                            {field: 'purviewName', title: '权限名称', sort: true, fixed: 'left', width: 120},
+                                            {field: 'url', title: 'URL路径', sort: true, fixed: 'left', width: 800},
+                                            {field: 'operator', title: '操作', toolbar: '#barDemo', width: 180}
+
+                                        ]]
+                                    });
+                                });
+                            </script>
+                            <script type="text/html" id="barDemo">
+                                <a class="layui-btn layui-btn-primary layui-btn-sm" lay-event="detail"><i class="layui-icon">&#xe642;</i>编辑</a>
+                                <a class="layui-btn layui-btn-primary layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+                            </script>
+
+
+
+
+
+
                         </div>
-                        <div class="layui-card-body ">
-                            <div class="page">
-                                <div>
-                                  <a class="prev" href="">&lt;&lt;</a>
-                                  <a class="num" href="">1</a>
-                                  <span class="current">2</span>
-                                  <a class="num" href="">3</a>
-                                  <a class="num" href="">489</a>
-                                  <a class="next" href="">&gt;&gt;</a>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div> 
     </body>
+
     <script>
+        //JavaScript代码区域
+        layui.use('element', function() {
+            var element = layui.element;
+
+        });
+    </script>
+
+    <!--<script>
       layui.use(['laydate','form'], function(){
         var laydate = layui.laydate;
         var form = layui.form;
@@ -183,5 +191,5 @@
         hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-      })();</script>
+      })();</script>-->
 </html>

@@ -1,7 +1,12 @@
 package com.lanou.upms.bean;
 
+import lombok.ToString;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
+@Component
+@ToString
 public class User {
     private Integer userId;
 

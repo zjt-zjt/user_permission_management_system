@@ -22,7 +22,7 @@
 		<!-- 添加skin-1类可手动修改主题为纯白，添加skin-2类可手动修改主题为蓝白 -->
 		<!-- header -->
 		<div class="layui-header my-header">
-			<a href="index.jsp"> <!--<img class="my-header-logo" src="" alt="logo">-->
+			<a href="home.jsp"> <!--<img class="my-header-logo" src="" alt="logo">-->
 				<div class="my-header-logo">UPMS用户权限管理系统</div>
 			</a>
 			<div class="my-header-btn">
@@ -84,7 +84,7 @@
 				</ul>
 				<div class="layui-tab-content">
 					<div class="layui-tab-item layui-show">
-						<iframe id="iframe" src="jsp/welcome2.html" frameborder="0"></iframe>
+						<iframe id="iframe" src="../../jsp/welcome2.html" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>
