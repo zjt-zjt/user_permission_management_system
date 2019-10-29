@@ -5,15 +5,12 @@
         <title>欢迎页面-X-admin2.2</title>
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+<!--        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
         <link rel="stylesheet" href="/static/x-admin/css/font.css">
         <link rel="stylesheet" href="/static/x-admin/css/xadmin.css">
-        <script src="/static/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<!--        <script src="/static/x-admin/lib/layui/layui.js" charset="utf-8"></script>-->
+        <script src="/static/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="/static/x-admin/js/xadmin.js"></script>
-        <!--[if lt IE 9]>
-          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
         <div class="x-nav">
@@ -30,46 +27,15 @@
             <div class="layui-row layui-col-space15">
                 <div class="layui-col-md12">
                     <div class="layui-card">
-                        <div class="layui-card-body ">
-                            <form class="layui-form layui-col-space5">
-                                
-                                <div class="layui-inline layui-show-xs-block">
-                                    <select name="cateid">
-                                      <option>规则分类</option>
-                                      <option>文章</option>
-                                      <option>会员</option>
-                                      <option>权限</option>
-                                    </select>
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <select name="contrller">
-                                      <option>请控制器</option>
-                                      <option>Index</option>
-                                      <option>Goods</option>
-                                      <option>Cate</option>
-                                    </select>
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <select name="action">
-                                      <option>请方法</option>
-                                      <option>add</option>
-                                      <option>login</option>
-                                      <option>checklogin</option>
-                                    </select>
-                                </div>
-                                <div class="layui-inline layui-show-xs-block">
-                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
-                                </div>
-                            </form>
-                        </div>
                         <div class="layui-card-header">
+                            <button class="layui-btn" onclick="xadmin.open('添加权限节点','rule-add.html',600,400)"><i class="layui-icon"></i>添加权限节点</button>
                             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
                         </div>
 
 
                         <div class="layui-card-body ">
 
-                            <table id="rightList"></table>
+                            <table id="rightList" lay-data="{id:'purviewIds'}" lay-filter="adminRule"></table>
                             <script>
                                 console.log("111111111");
                                 layui.use('table', function() {
@@ -78,17 +44,12 @@
                                     table.render({
                                         elem: '#rightList',
                                         height: 480,
-                                        url: '/right/list',
-                                        // data: msg,
+                                        url: '/list',
                                         page: true, //开启分页
-                                        // limit:10,
-                                        // limits:[10,20,30],
-                                        // uid:2,
-                                        // request: {
-                                        //     pageName: 'page' //页码的参数名称，默认：page
-                                        //     ,limitName: 'limit' //每页数据量的参数名，默认：limit
-                                        // },
+                                        limit:10,
+                                        limits:[10,20,30],
                                         cols: [[ //表头
+                                            {type: 'checkbox', fixed: 'left'},
                                             {field: 'purviewId', title: 'ID', sort: true, fixed: 'left', width: 80},
                                             {field: 'purviewName', title: '权限名称', sort: true, fixed: 'left', width: 120},
                                             {field: 'url', title: 'URL路径', sort: true, fixed: 'left', width: 800},
@@ -101,6 +62,77 @@
                             <script type="text/html" id="barDemo">
                                 <a class="layui-btn layui-btn-primary layui-btn-sm" lay-event="detail"><i class="layui-icon">&#xe642;</i>编辑</a>
                                 <a class="layui-btn layui-btn-primary layui-btn-sm" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+                            </script>
+
+
+                            <script>
+                                layui.use('table', function() {
+                                    // 监听行工具事件
+                                    var table = layui.table;
+                                    table.on('tool(adminRule)', function (obj) {
+                                        var data = obj.data;
+                                        console.log("data：" + data);
+                                        if (obj.event === 'detail') {
+                                            xadmin.open('编辑权限节点','rule-edit.html',600,400);
+                                            table.reload();
+                                            // layer.msg('ID：' + data.purviewId + ' 的查看操作');
+                                        } else if (obj.event === 'del') {
+                                            layer.confirm('真的删除行么', function (index) {
+                                                alert("111111");
+                                                console.log("id：" + data.purviewId);
+                                                $.ajax("delpurview", {
+                                                    type:"GET",
+                                                    data:{
+                                                        id:data.purviewId
+                                                    },
+                                                    dataType:"json",
+                                                    success:function (data, textStatus, jqXhr) {
+                                                        if (data.code == 200) {
+                                                            layer.msg("删除成功！");
+                                                            obj.del();
+                                                            layer.close(index);
+                                                        } else {
+                                                            layer.msg("删除失败！")
+                                                        }
+                                                    }
+                                                });
+                                            });
+
+                                        } else if (obj.event === 'edit') {
+                                            layer.alert('编辑行：<br>' + JSON.stringify(data))
+                                        } else if (obj.event === 'clickSubject') {
+                                            $.ajax("/MsgServlet", {
+                                                type:"GET",
+                                                data:{
+                                                    operater:"readMsg",
+                                                    id:data.id
+                                                },
+                                                dataType:"json",
+                                                success:function (data, textStatus, jqXhr) {
+                                                    if (data === 1) {
+                                                        // alert("11111");
+                                                        document.location.href = "http://localhost:8082/admin/readMsg.jsp";
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                    var $ = layui.$, active = {
+                                        getCheckData: function(){ //获取选中数据
+                                            var checkStatus = table.checkStatus('purviewIds')
+                                                ,data = checkStatus.data;
+                                            layer.alert(JSON.stringify(data));
+                                        }
+                                    };
+
+                                    $('.layui-btn').on('click', function(){
+                                        var type = $(this).data('type');
+                                        active[type] ? active[type].call(this) : '';
+                                    });
+
+                                });
+
                             </script>
 
 

@@ -123,7 +123,7 @@
 
 			// 主体菜单生成 [请求地址,过滤ID,是否展开,携带参数]
 			/*vipNav.main('./json/tab/tab2.json', 'side-main', true);*/
-			vipNav.main('/static/json/tab/tab3.json', 'side-main', true);
+			vipNav.main('/static/json/tab/tab2.json', 'side-main', true);
 
 			// you code ...
 		});

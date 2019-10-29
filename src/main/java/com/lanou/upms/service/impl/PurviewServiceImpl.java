@@ -57,4 +57,52 @@ public class PurviewServiceImpl implements PurviewService {
         retData.setData(currentPageData);
         return retData;
     }
+
+    @Override
+    public int addPurview(String purviewName, String url, Integer parentId) {
+        /*PurviewExample purviewExample = new PurviewExample();
+        PurviewExample.Criteria criteria = purviewExample.createCriteria();
+        if (purviewName != null) {
+            criteria.andPurviewNameEqualTo(purviewName);
+        }
+        if (url != null) {
+            criteria.andUrlEqualTo(url);
+        }
+        if (parentId != null) {
+            criteria.andTypeEqualTo(parentId);
+        }*/
+
+        Purview purview = new Purview();
+        purview.setPurviewName(purviewName);
+        purview.setUrl(url);
+        purview.setParentId(parentId);
+        purviewMapper.insert(purview);
+        System.out.println("=========== parentId：" + parentId + ", purviewName：" + purviewName + ", url：" + url);
+        return 1;
+    }
+
+    @Override
+    public int delPurview(Integer purviewId) {
+        purviewMapper.deleteByPrimaryKey(purviewId);
+        return 1;
+    }
+
+    @Override
+    public int editPurview(Integer purviewId, String purviewName, String url, Integer parentId) {
+        Purview purview = new Purview();
+        purview.setPurviewId(purviewId);
+        purview.setPurviewName(purviewName);
+        purview.setUrl(url);
+        purview.setParentId(parentId);
+
+        PurviewExample purviewExample = new PurviewExample();
+        PurviewExample.Criteria criteria = purviewExample.createCriteria();
+        /*if (purviewName != null) {
+            criteria.andPurviewNameEqualTo(purviewName);
+        }*/
+        criteria.andPurviewIdEqualTo(purviewId);
+
+        purviewMapper.updateByExample(purview, purviewExample);
+        return 1;
+    }
 }

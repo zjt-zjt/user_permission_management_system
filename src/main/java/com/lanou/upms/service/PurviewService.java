@@ -11,4 +11,9 @@ public interface PurviewService {
 
     LayUITableData<Purview> queryRights(Object o, Integer pageSize, Integer currentPage);
 
+    int addPurview(String purviewName, String url, Integer parentId);
+
+    int delPurview(Integer purviewId);
+
+    int editPurview( Integer purviewId, String purviewName, String url, Integer parentId);
 }
