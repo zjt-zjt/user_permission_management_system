@@ -1,11 +1,17 @@
 package com.lanou.upms.bean;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Role {
     private Integer roleId;
-
     private String roleName;
-
+    private String username;
     private String roleDes;
+
+
 
     public Integer getRoleId() {
         return roleId;
