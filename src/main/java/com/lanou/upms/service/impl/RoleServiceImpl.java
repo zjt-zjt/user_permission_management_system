@@ -58,6 +58,7 @@ public class RoleServiceImpl implements RoleService {
         retData.setMsg("查询成功");
         retData.setData(currentPageData);
         System.out.println();
+        roleCache = null;
         return retData;
     }
 
