@@ -86,6 +86,7 @@ public class PurviewServiceImpl implements PurviewService {
     public int delPurview(Integer purviewId) {
         purviewMapper.deleteByPrimaryKey(purviewId);
         return 1;
+
     }
 
     @Override
