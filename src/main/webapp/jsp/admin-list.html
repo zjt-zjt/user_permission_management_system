@@ -49,10 +49,21 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="layui-card-header">
-                            <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','admin-add.html',600,400)"><i class="layui-icon"></i>添加</button>
-                        </div>
+                      <!--  <div class="layui-btn-container">
+                            <button class="layui-btn  layui-btn-danger" lay-event="getCheckData"><i class="layui-icon"></i>批量删除</button>
+&lt;!&ndash;                            <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>&ndash;&gt;
+&lt;!&ndash;                            <button class="layui-btn" onclick="xadmin.open('添加用户','admin-add.html',600,400)"><i class="layui-icon"></i>添加</button>&ndash;&gt;
+                            <button class="layui-btn" onclick="xadmin.open('添加管理员','add.jsp',600,400)"><i class="layui-icon"></i>添加</button>
+                        </div>-->
+
+                        <script type="text/html" id="toolbarDemo">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn  layui-btn-danger" lay-event="getCheckData"><i class="layui-icon"></i>批量删除</button>
+                                <!--                            <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>-->
+                                <!--                            <button class="layui-btn" onclick="xadmin.open('添加用户','admin-add.html',600,400)"><i class="layui-icon"></i>添加</button>-->
+                                <button class="layui-btn" onclick="xadmin.open('添加管理员','add.jsp',600,400)"><i class="layui-icon"></i>添加</button>
+                            </div>
+                        </script>
                        <!-- <div class="layui-card-body ">
                                                     <table class="layui-table layui-form">
                                                       <thead>
@@ -107,7 +118,10 @@
 <!--                                  <a class="num" href="">489</a>-->
 <!--                                  <a class="next" href="">&gt;&gt;</a>-->
 <!--                                </div>-->
-                        <table id="userListTable"></table>
+                        <table id="userListTable"  lay-filter="test"></table>
+<!--                        <table id="role_table" lay-filter="role_table"></table>-->
+
+
                             </div>
                         </div>
                     </div>
@@ -115,9 +129,9 @@
             </div>
         </div>
 
-    </body>
 
-    <script id="barDemo" type="text/html">
+
+    <!--<script id="barDemo" type="text/html">
         <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
             <i class="layui-icon">&#xe601;</i>
         </a>
@@ -127,45 +141,121 @@
         <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
             <i class="layui-icon">&#xe640;</i>
         </a>
+    </script>-->
+
+    <script type="text/html" id="barDemo">
+
+<!--<a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">-->
+<!--    <i class="layui-icon">&#xe601;</i>-->
+<!--</a>-->
+       <button class="layui-btn" onclick="xadmin.open('管理员编辑','edit.jsp',600,400)">编辑</button>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
 
 
+<!--    <script id="bar" type="text/html">-->
 
-    <script id="bar" type="text/html">
+<!--     &lt;!&ndash;   <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>&ndash;&gt;-->
 
-        <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>
-    </script>
+<!--    </script>-->
 
 
 
 
     <script type="text/javascript">
         //一般直接写在一个js文件中
-        layui.use(['table'], function(){
+        layui.use(['table','layer'], function(){
             var table = layui.table;
 
             //第一个实例
             table.render({
-                elem: '#userListTable'
-                ,height: 'full-20'  //高度最大化减去差值，参见layui官方说明：https://www.layui.com/doc/modules/table.html#height
+                elem: '#userListTable',
+                toolbar: '#toolbarDemo'
+                ,height: '500'  //高度最大化减去差值，参见layui官方说明：https://www.layui.com/doc/modules/table.html#height
                 ,url: "/user/list" //数据接口
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                    {field: 'userId', title: 'ID', width:80,  fixed: 'left'}
-                    ,{field: 'username', title: '登录名', width:80}
-                    ,{field: 'phone', title: '手机', width:120}
+                    {type: 'checkbox'},
+                    {field: 'userId', title: 'ID', width:100}
+                    ,{field: 'username', title: '登录名', width:100}
+                    ,{field: 'phone', title: '手机', width:200}
                     ,{field: 'email', title: '邮箱', width:120}
-                    ,{field: 'null', title: '角色', width:80}
-                    ,{field: 'createTime', title: '加入时间', width:120}
-                    ,{field: 'null', title: '是否已禁用',toolbar: '#bar', width:120}
-                    ,{field: 'status', title: '操作',toolbar: '#barDemo', width:100}
+                    ,{field: 'role', title: '角色', width:120}
+                    ,{field: 'createTime', title: '加入时间', width:200}
+                    // ,{field: 'null', title: '是否已禁用',toolbar: '#bar', width:200}
+                    ,{field: 'status', title: '操作',toolbar: '#barDemo', width:150}
                 ]]
             });
+
+            table.on('tool(test)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'del'){
+                    var id=data.id;
+
+                    layer.confirm('真的删除行么', function(index){
+                        obj.del();
+                        layer.close(index);
+                        $.ajax({
+                            url: "/user/delete",
+                            type: "get",
+                            data: {
+                                id:data.userId
+                            },
+                            dataType: "json",
+                            success: function (data,textStatus,jqxhr) {
+                                if(data.rs ==1){
+
+                                }
+                            }
+
+                        });
+
+                    });
+                } else if(obj.event === 'edit') {
+                    layer.prompt({
+                        formType: 2
+                        , value: data.email
+                    }, function (value, index) {
+                        obj.update({
+                            email: value
+                        });
+                        layer.close(index);
+                    });
+                }
+            });
+
+
+            table.on('toolbar(test)', function(obj){
+                var checkStatus = table.checkStatus(obj.config.id);
+                switch(obj.event){
+                    case 'getCheckData':
+                        var data = checkStatus.data;
+                        layer.alert(JSON.stringify(data));
+                        getSelectIds(data);
+                        break;
+                };
+            });
+
+
+        function getSelectIds(selectRows) {
+            if(!selectRows) {
+                return "";
+            }
+            var ids = "";
+            for(var rowIdx in selectRows) {
+                console.log(selectRows[rowIdx]);
+                ids += selectRows[rowIdx].id;
+                ids += ",";
+            }
+
+            alert("选中行的数据ID值： " + ids);
+        }
+
+
+
         });
 
     </script>
-
-
 
     <script>
       layui.use(['laydate','form'], function(){
@@ -182,53 +272,61 @@
           elem: '#end' //指定元素
         });
       });
+      </script>
 
        /*用户-停用*/
-       function member_stop(obj,id){
-           layer.confirm('确认要停用吗？',function(index){
+       <!--function member_stop(obj,id){-->
+       <!--    layer.confirm('确认要停用吗？',function(index){-->
 
-              if($(obj).attr('title')=='启用'){
-
-                 //发异步把用户状态进行更改
-                 $(obj).attr('title','停用')
-                $(obj).find('i').html('&#xe62f;');
-
-                 $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                 layer.msg('已停用!',{icon: 5,time:1000});
-
-               }else{
-                 $(obj).attr('title','启用')
-                 $(obj).find('i').html('&#xe601;');
-
-                $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                 layer.msg('已启用!',{icon: 5,time:1000});
-               }
-
-           });
-       }
-
-       /*用户-删除*/
-       function member_del(obj,id){
-           layer.confirm('确认要删除吗？',function(index){
-               //发异步删除数据
-               $(obj).parents("tr").remove();
-               layer.msg('已删除!',{icon:1,time:1000});
-           });
-       }
+       <!--       if($(obj).attr('title')=='启用'){-->
+      <!-- -->
+             //发异步把用户状态进行更改-->
+      <!--           $(obj).attr('title','停用')-->
+      <!--          $(obj).find('i').html('&#xe62f;');-->
+      <!-- -->
+      <!--           $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');-->
+      <!--           layer.msg('已停用!',{icon: 5,time:1000});-->
+      <!-- -->
+      <!--         }else{-->
+      <!--           $(obj).attr('title','启用')-->
+      <!--           $(obj).find('i').html('&#xe601;');-->
+      <!-- -->
+      <!--          $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');-->
+      <!--           layer.msg('已启用!',{icon: 5,time:1000});-->
+      <!--         }-->
+      <!-- -->
+      <!--     });-->
+      <!-- }-->
 
 
 
-       function delAll (argument) {
+
+      <!--  <script>
+       /!*用户-删除*!/
+        function member_del(obj,id){
+            layer.confirm('确认要删除吗？',function(index) {
+                //发异步删除数据
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!', {icon: 1, time: 1000});
+
+        }
+
+        }
+*/
+
+     function delAll (argument) {
 
          var data = tableCheck.getData();
 
-         layer.confirm('确认要删除吗？'+data,function(index){
-            //捉到所有被选中的，发异步进行删除
+         layer.confirm('确认要删除吗？' + data, function (index) {
+             //捉到所有被选中的，发异步进行删除
              layer.msg('删除成功', {icon: 1});
              $(".layui-form-checked").not('.header').parents('tr').remove();
          });
-       }
-    </script>
+     }
+
+    </script>-->
+
     <script>var _hmt = _hmt || []; (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
@@ -238,5 +336,6 @@
 
 
 
+</body>
 
 </html>

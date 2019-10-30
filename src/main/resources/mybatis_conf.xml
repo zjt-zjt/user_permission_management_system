@@ -31,6 +31,6 @@
 
 
     <mappers>
-        <mapper resource="mapper.xml"/>
+        <mapper resource="mapper_admin.xml"/>
     </mappers>
 </configuration>

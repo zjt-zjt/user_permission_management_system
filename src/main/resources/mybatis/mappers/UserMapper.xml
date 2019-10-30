@@ -164,6 +164,20 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+
+
+  <select id="findById" resultType="java.lang.Integer">
+    select
+    user.user_id,
+    user.username,
+    user.phone,
+    user.email,
+    user.creat_time,
+    from user
+    left join role on user.user_id = role.role_id
+  </select>
+
   <update id="updateByExampleSelective" parameterType="map">
     update user
     <set>

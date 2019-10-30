@@ -1,0 +1,61 @@
+2019-10-29 10:39:29.354 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time FROM user u LEFT JOIN role r ON u.user_id = r.role_id where status=1 
+2019-10-29 10:39:29.447 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==> Parameters: 
+2019-10-29 10:39:29.496 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - <==      Total: 2
+2019-10-29 10:42:07.306 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where status=1 
+2019-10-29 10:42:07.422 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==> Parameters: 
+2019-10-29 10:55:16.248 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.user_id=? 
+2019-10-29 10:55:16.405 [main] DEBUG com.lanou.upms.mapper.TestMapper.findById - ==> Parameters: 1(Integer)
+2019-10-29 11:08:22.824 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where user.status = 1 
+2019-10-29 11:08:22.928 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:10:16.105 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:10:16.161 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:10:16.225 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:11:46.706 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:11:46.800 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:11:46.839 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:12:48.865 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name role_name, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:12:48.969 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:13:24.226 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:13:24.305 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:13:24.362 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:15:15.998 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:15:16.172 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:15:16.226 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:15:40.131 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:15:40.225 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:15:40.293 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:16:54.970 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:16:55.072 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:17:50.005 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:17:50.141 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:17:50.184 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:19:43.986 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name FROM user u LEFT JOIN user_role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:19:44.135 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:20:28.059 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, FROM user u LEFT JOIN user_role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:20:28.127 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:21:02.909 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:21:03.015 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:22:04.779 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:22:04.922 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:22:33.335 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:22:33.479 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:23:01.671 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name, FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:23:01.770 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:24:30.714 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_id, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:24:30.800 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:24:30.869 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:24:52.214 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:24:52.277 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:24:52.328 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:28:09.906 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:28:09.993 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:28:10.035 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:44:01.329 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:44:01.441 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:44:01.486 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:50:04.498 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:50:04.583 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:50:04.630 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2
+2019-10-29 11:54:28.792 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==>  Preparing: SELECT u.user_id id, u.username username, u.phone phone, u.email email, u.create_time createTime, u.status status, r.role_name FROM user u LEFT JOIN role r ON u.user_id = r.role_id where u.status = 1 
+2019-10-29 11:54:28.953 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - ==> Parameters: 
+2019-10-29 11:54:28.994 [main] DEBUG com.lanou.upms.mapper.TestMapper.queryAll - <==      Total: 2

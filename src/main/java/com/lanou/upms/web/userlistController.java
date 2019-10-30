@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/user")
 public class userlistController {
@@ -22,10 +24,12 @@ public class userlistController {
                                  @RequestParam(value = "limit", required = false, defaultValue = "10") Integer pageSize,
                                  @RequestParam(required = false)  User user){
 
-
          return userListService.queryUserList(null, pageSize, currentPage);
 
     }
+
+
+
 
 
 }
