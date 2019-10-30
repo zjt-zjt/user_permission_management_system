@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     purview_id, parent_id, purview_name, url, type, order_num
   </sql>
-  <select id="selectByExample" parameterType="com.lanou.upms.bean.PurviewExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lanou.upms.bean.PurviewExample" resultMap="BaseResultMap" flushCache="true">
     select
     <if test="distinct">
       distinct

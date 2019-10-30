@@ -4,7 +4,9 @@ import com.lanou.upms.bean.Role;
 import com.lanou.upms.bean.RoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface RoleMapper {
     long countByExample(RoleExample example);
 

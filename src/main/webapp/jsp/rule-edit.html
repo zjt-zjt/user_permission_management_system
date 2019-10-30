@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!--        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
+        <link rel="stylesheet" href="/static/x-admin/css/font.css">
+        <link rel="stylesheet" href="/static/x-admin/css/xadmin.css">
+<!--        <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>-->
+        <script type="text/javascript" src="/static/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/static/x-admin/js/xadmin.js"></script>
+    </head>
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form">
+                  <div class="layui-form-item">
+                      <label for="parentId" class="layui-form-label">
+                          <span class="x-red">*</span>上级栏目
+                      </label>
+                      <div class="layui-input-inline">
+                          <select id="parentId" name="parentId" lay-verify="parentId" lay-search>
+                              <option value="">选择父级栏目</option>
+                              <!--<option value="0">顶级分类</option>
+                              <option value="1">分类一级</option>
+                              <option value="2">|— 分类二级</option>
+                              <option value="2">|— 分类二级</option>
+                              <option value="1">分类一级</option>
+                              <option value="2">|— 分类二级</option>-->
+                          </select>
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>选择要修改栏目节点的上级栏目
+                      </div>
+                  </div>
+
+                    <div class="layui-form-item">
+                        <label for="purviewId" class="layui-form-label">
+                            <span class="x-red">*</span>栏目ID
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="purviewId" name="purviewId" required="" lay-verify="purviewId"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            <span class="x-red">*</span>填写要修改的栏目ID
+                        </div>
+                    </div>
+
+                  <div class="layui-form-item">
+                      <label for="partName" class="layui-form-label">
+                          <span class="x-red">*</span>栏目名称
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="partName" name="partName" required="" lay-verify="partName"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>填写要修改的栏目名称
+                      </div>
+                  </div>
+
+
+                  <div class="layui-form-item">
+                      <label for="partURL" class="layui-form-label">
+                          <span class="x-red">*</span>栏目URL
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="partURL" name="partURL" required="" lay-verify="partURL"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span>填写要修改的栏目URL
+                      </div>
+                  </div>
+
+
+                  <div class="layui-form-item">
+                      <label class="layui-form-label"><span class="x-red">*</span>是否叶子节点</label>
+                      <div class="layui-input-block">
+                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="" checked="">
+                      </div>
+                  </div>
+
+                  <div class="layui-form-item">
+                      <label class="layui-form-label">
+                      </label>
+                      <button  class="layui-btn" lay-filter="edit" lay-submit="">
+                          添加权限节点
+                      </button>
+                      <div class="layui-form-mid layui-word-aux">
+                          <span class="x-red">*</span><font id="error" color="red"></font>
+                      </div>
+                  </div>
+              </form>
+            </div>
+        </div>
+        <script>layui.use(['form', 'layer', 'table'],
+            function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                layer = layui.layer;
+
+                //自定义验证规则
+                form.verify({
+                    partName: function(value) {
+                        if (value.length <= 0) {
+                            return '栏目名称不能为空！';
+                        }
+                    },
+                    parentId: function(value) {
+                        if (value === null) {
+                        // if ($("#parentId").val() === null) {
+                            return '父栏目选择不能为空！';
+                        }
+                    }
+                });
+
+                //监听提交
+                form.on('submit(edit)',
+                function(data) {
+                    console.log(data);
+                    //发异步，把数据提交给controller
+                    var parentId = $("#parentId").val();
+                    var purviewId = $("#purviewId").val();
+                    var purviewName = $("#partName").val();
+                    var purviewURL = $("#partURL").val();
+                    console.log("parentId：" + parentId + ", purviewId" + purviewId + ", purviewName：" + purviewName + ", purviewURL：" + purviewURL);
+                    var url = "editpurview";
+                    $.ajax(url, {
+                        type:"GET",
+                        data:{
+                            parentId:parentId,
+                            purviewId:purviewId,
+                            purviewName:purviewName,
+                            purviewURL:purviewURL
+                        },
+                        dataType:"json",
+                        success:function (data, textStatus, jqXhr) {
+                            console.log(data);
+                            console.log("data的类型：" + (typeof data));
+                            console.log(textStatus);
+                            $("#error").text(data.message);
+
+                            if (data.code == 200) {
+                                console.log(data.message);
+                            }
+
+                        }
+                    });
+
+
+
+                    layer.alert("增加成功", {
+                        icon: 6
+                    },
+                    function() {
+                        //关闭当前frame
+                        xadmin.close();
+
+                        // 可以对父窗口进行刷新 
+                        xadmin.father_reload();
+
+                    });
+                    return false;
+                });
+
+            });</script>
+
+
+        <script>
+            layui.use('form', function() {
+                var form = layui.form
+                    ,$ = layui.jquery;
+                //ajax获取好友数据
+                loadPurview();
+                console.log("即将进入查询.....");
+
+                function loadPurview() {
+                    console.log("进入下拉查询ajax....");
+                    $.ajax("showPurviewList", {
+                        type: "GET",
+                        data: {
+
+                        },
+                        dataType: "json",
+                        success: function (data, textStatus, jqXhr) {
+                            // console.log("查询到：" + data);
+                            $(data.data).each(function (index, c) {
+                                $("#parentId").append("<option value='" + c.parentId + "'>" + c.purviewName);
+                            });
+                            // var form = layui.form;
+                            form.render();
+                        }
+                    });
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
