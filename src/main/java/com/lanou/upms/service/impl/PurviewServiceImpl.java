@@ -78,6 +78,7 @@ public class PurviewServiceImpl implements PurviewService {
         purview.setParentId(parentId);
         purviewMapper.insert(purview);
         System.out.println("=========== parentId：" + parentId + ", purviewName：" + purviewName + ", url：" + url);
+        rightCache = null;
         return 1;
     }
 
@@ -103,6 +104,7 @@ public class PurviewServiceImpl implements PurviewService {
         criteria.andPurviewIdEqualTo(purviewId);
 
         purviewMapper.updateByExample(purview, purviewExample);
+        rightCache = null;
         return 1;
     }
 }
