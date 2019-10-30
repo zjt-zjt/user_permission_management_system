@@ -1,5 +1,7 @@
 package com.lanou.upms.bean;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +19,7 @@ public class User {
     private String phone;
 
     private String email;
-
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     private Integer status;
