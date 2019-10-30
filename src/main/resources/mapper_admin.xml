@@ -11,7 +11,7 @@
         <result column="email" property="email" />
         <result column="createTime" property="createTime" />
         <result column="status" property="status" />
-        <result column="role_name" property="role" />
+        <result column="role_name" property="rolename" />
 
     </resultMap>
     <insert id="insertUser">
