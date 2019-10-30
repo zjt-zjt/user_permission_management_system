@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.upms.mapper.TestRoleMapper">
+
+    <resultMap id="RoleMap" type="com.lanou.upms.bean.Role">
+        <id column="id" property="roleId"></id>
+        <result column="role_name" property="roleName" />
+        <result column="username" property="username" />
+        <result column="role_des" property="roleDes" />
+
+    </resultMap>
+    <update id="update">
+       update user set status = 2 where user_id = #{id}
+    </update>
+
+
+    <select id="queryAll" resultMap="RoleMap">
+       SELECT
+         r.role_id id,
+         r.role_name role_name,
+         r.role_des role_des,
+         u.username username
+        FROM
+         role r
+        LEFT JOIN user u ON u.user_id = r.role_id
+       where
+       u.status = 1
+    </select>
+
+</mapper>
