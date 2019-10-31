@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.Date;
 @Setter
 @Getter
@@ -23,7 +24,7 @@ public class User {
 
     private String email;
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
+    private Timestamp createTime;
 
     private Integer status;
 
@@ -69,13 +70,7 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     public Integer getStatus() {
         return status;
@@ -84,4 +79,7 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+
+
 }

@@ -33,6 +33,7 @@ public class PurviewServiceImpl implements PurviewService {
                 criteria.andUrlLike(condition.getUrl());
             }
         }*/
+
         return purviewMapper.selectByExample(purviewExample);
     }
 
@@ -55,6 +56,7 @@ public class PurviewServiceImpl implements PurviewService {
         retData.setCount((long)(rightCache.size()));
         retData.setMsg("查询成功");
         retData.setData(currentPageData);
+        rightCache = null;
         return retData;
     }
 

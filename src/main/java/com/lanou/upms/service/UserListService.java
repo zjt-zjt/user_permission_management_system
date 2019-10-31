@@ -11,5 +11,5 @@ public interface UserListService {
     List<User> queryAll();
     int update(String  id );
     //int insertUser(User user);
-
+    //int edit(String  id );
 }

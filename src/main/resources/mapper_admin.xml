@@ -15,8 +15,8 @@
 
     </resultMap>
     <insert id="insertUser">
-        insert into  user (username,password,phone,email)values
-         (#{username},#{password},#{phone},#{email})
+        insert into  user (username,password,phone,email,create_time)values
+         (#{username},#{password},#{phone},#{email},#{createTime})
 
     </insert>
     <insert id="insertRole">
@@ -29,13 +29,25 @@
     </update>
 
 
-    <update id="updateUser">
-     update user set phone=#{phone},email=#{email},password=#{password}
+    <update id="edit">
+     update user set  username=#{username}, password=#{password},phone=#{phone},email=#{email}
      where
-     username=#{username}
+     user_id = #{user_id}
     </update>
 
 
+
+    <update id="editRole">
+        update role set role_name = #{roleName}
+        where role_id = #{role_id}
+    </update>
+
+
+    <!--    <update id="updateRole">-->
+<!--    update role set  role_name = #{roleName}-->
+<!--     where-->
+<!--    user_id = #{id}-->
+<!--    </update>-->
 
 
     <select id="queryAll" resultMap="UserMap">
@@ -52,6 +64,15 @@
         LEFT JOIN role r ON u.user_id = r.role_id
        where
        u.status = 1
+    </select>
+    <select id="queryById" resultType="com.lanou.upms.bean.User">
+        select * from  user where
+          user_id = #{id}
+    </select>
+
+    <select id="queryByIdRole" resultType="com.lanou.upms.bean.Role">
+        select *from role where
+        role_id = #{id}
     </select>
 
 </mapper>

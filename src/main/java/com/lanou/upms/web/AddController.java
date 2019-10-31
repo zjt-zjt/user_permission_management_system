@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+
 
 @RestController
 @RequestMapping("/user")
@@ -40,15 +45,19 @@ public class AddController {
          String  rolename =   request.getParameter("rolename");
            System.out.println(rolename);
            Role role  = new Role();
-          User  user = new User();
+            User  user = new User();
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
             user.setUsername(username);
             user.setPassword(password);
             user.setPhone(phone);
             user.setEmail(email);
+           user.setCreateTime(timestamp);
             role.setRoleName(rolename);
             testMapper.insertUser(user);
             testMapper.insertRole(role);
-           return  "添加成功！";
+             return  "添加成功！";
     }
 
 }
