@@ -213,7 +213,7 @@
                    // console.log("obj:" + obj.data);
                     var id=obj.data.userId;
                     console.log("id:" + id);
-                    xadmin.open('管理员编辑', 'edit.jsp?id=' + id ,700,500);
+                    //xadmin.open('管理员编辑', 'edit.jsp?id=' + id ,700,500);
 
                     $.ajax({
                         url: "/user/edit2",
@@ -223,9 +223,10 @@
                         },
                         dataType: "json",
                         success: function (data,textStatus,jqxhr) {
-                            if(data.rs ==1){
-
+                             if(data.rs ==1){
+                                 xadmin.open('管理员编辑', 'edit.jsp',700,500);
                             }
+
                         }
 
                     });
